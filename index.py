@@ -1,11 +1,6 @@
-# function to get item type (magic/non-magical) from api, dropdown menu on front end
-
-# function to get item rarity from dropdown
-
-# retrieve all data from the API and pick a random index num and return item with name, desc, rarity, url?
-
 from flask import Flask
-from flask import requests
+from flask import request
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -18,7 +13,20 @@ headers = {
 }
 
 
-response = requests.request("GET", url, headers=headers, data=payload)
+response = request.request("GET", url, headers=headers, data=payload)
 
 
 print(response.text)
+
+@app.route('/')
+def index(name=None):
+    return render_template('index.html', name=name)
+
+# function to get random item (magic) from api, dropdown menu on front end
+@app.route('/items', methods=["GET", "POST"])
+def items(indexNum):
+    return 
+
+# function to get item rarity from dropdown
+
+# retrieve all data from the API and pick a random index num and return item with name, desc, rarity, url?
