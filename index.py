@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-import requests
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,7 +7,7 @@ API_ENDPOINT = "https://www.dnd5eapi.co/api/equipment/"
 
 def get_random_item():
     # Get a random item from the D&D 5e API
-    response = requests.get(API_ENDPOINT)
+    response = request.get(API_ENDPOINT)
     data = response.json()
     return data
 
