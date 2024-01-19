@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import requests
+import random
 
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ def get_random_item():
     # Get a random item from the D&D 5e API
     response = requests.get(API_ENDPOINT)
     data = response.json()
-    return data.results[0]
+    return random.choice(data["results"])
 
 @app.route("/")
 def index():
