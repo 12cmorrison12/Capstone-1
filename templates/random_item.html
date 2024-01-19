@@ -10,7 +10,7 @@
 <body>
     <h1>Random Item Details</h1>
     <h2>Name: {{ item['name'] }}</h2>
-    <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
+    <a href="https://www.dnd5eapi.co{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
     <!-- Add more details based on the API response -->
     <a href="{{ url_for('random_item') }}"><button>Get Another Random Item</button></a>
 </body>
