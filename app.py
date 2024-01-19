@@ -10,7 +10,7 @@ def get_random_item():
     # Get a random item from the D&D 5e API
     response = requests.get(API_ENDPOINT)
     data = response.json()
-    return data
+    return data.results[0]
 
 @app.route("/")
 def index():
